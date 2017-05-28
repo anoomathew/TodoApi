@@ -7,7 +7,7 @@ var express = require('express'),
   var mongoose = require ("mongoose");
     // Here we find an appropriate database to connect to, defaulting to
     // localhost if we don't find one.
-    var uristring =process.env.MONGODB_URI ||'mongodb://localhost/Todo';
+    var uristring =process.env.MONGODB_URI ||'mongodb://heroku_1p2b1drt:7b777hdoe2qv51gii7q1mdpj4u@ds155961.mlab.com:55961/heroku_1p2b1drt';
 
 
     // Makes connection asynchronously.  Mongoose will queue up database
@@ -21,11 +21,7 @@ var express = require('express'),
     });
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 
-app.use(function(req, res) {
-  res.status(404).send({url: req.originalUrl + ' not found'})
-});
 
 var routes = require('./api/routes/todoRoutes');
 routes(app);

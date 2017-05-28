@@ -4,12 +4,12 @@ module.exports = function(app) {
 
 
   // todoList Routes
-  app.route('/todo')
+  app.route('/todos')
     .get(todoList.get_todos)
     .post(todoList.create_todo);
 
 
-  app.route('/todo/:todoId')
+  app.route('/todos/:todoId')
     .get(todoList.get_todo)
     .put(todoList.update_todo)
     .delete(todoList.delete_todo);
