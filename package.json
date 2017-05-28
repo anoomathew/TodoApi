@@ -1,0 +1,23 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "An App to add, edit and delete TODO's ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sam2305/TodoApi.git"
+  },
+  "keywords": [
+    "\"RESTAPI\"",
+    "\"TODO\""
+  ],
+  "author": "Sam Mathew",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sam2305/TodoApi/issues"
+  },
+  "homepage": "https://github.com/sam2305/TodoApi#readme"
+}
