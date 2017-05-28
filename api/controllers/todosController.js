@@ -1,55 +1,55 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-  Task = mongoose.model('Tasks');
+  Todo = mongoose.model('Todos');
 
-exports.get_tasks = function(req, res) {
-  Task.find({}, function(err, task) {
+exports.get_todos = function(req, res) {
+  Todo.find({}, function(err, Todo) {
     if (err)
-      res.send(err);
-    res.json(task);
+      res.send({ message: err });
+    res.json(Todo);
   });
 };
 
 
 
 
-exports.create_task = function(req, res) {
-  var new_task = new Task(req.body);
-  new_task.save(function(err, task) {
+exports.create_todo = function(req, res) {
+  var new_Todo = new Todo(req.body);
+  new_Todo.save(function(err, Todo) {
     if (err)
-      res.send(err);
-    res.json(task);
+      res.send({ message: err });
+    res.json(Todo);
   });
 };
 
 
-exports.read_a_task = function(req, res) {
-  Task.findById(req.params.taskId, function(err, task) {
+exports.get_todo = function(req, res) {
+  Todo.findById(req.params.TodoId, function(err, Todo) {
     if (err)
-      res.send(err);
-    res.json(task);
+      res.send({ message: err });
+    res.json(Todo);
   });
 };
 
 
-exports.update_a_task = function(req, res) {
-  Task.findOneAndUpdate(req.params.taskId, req.body, {new: true}, function(err, task) {
+exports.update_todo = function(req, res) {
+  Todo.findOneAndUpdate(req.params.TodoId, req.body, {new: true}, function(err, Todo) {
     if (err)
-      res.send(err);
-    res.json(task);
+      res.send({ message: err });
+    res.json({ message: 'Todo successfully updated' });
   });
 };
 
 
-exports.delete_a_task = function(req, res) {
+exports.delete_todo = function(req, res) {
 
 
-  Task.remove({
-    _id: req.params.taskId
-  }, function(err, task) {
+  Todo.remove({
+    _id: req.params.TodoId
+  }, function(err, Todo) {
     if (err)
-      res.send(err);
-    res.json({ message: 'Task successfully deleted' });
+      res.send({ message: err });
+    res.json({ message: 'Todo successfully deleted' });
   });
 };

@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
-var ToDoSchema = new Schema({
+var TodoSchema = new Schema({
   name: {
     type: String,
     Required: 'Kindly enter the name of the task'
@@ -24,4 +24,4 @@ var ToDoSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('ToDos', ToDoSchema);
+module.exports = mongoose.model('Todos', TodoSchema);
