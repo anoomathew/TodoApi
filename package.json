@@ -19,5 +19,14 @@
   "bugs": {
     "url": "https://github.com/sam2305/TodoApi/issues"
   },
-  "homepage": "https://github.com/sam2305/TodoApi#readme"
+  "homepage": "https://github.com/sam2305/TodoApi#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.3",
+    "express": "^4.15.3",
+    "mongoose": "^4.10.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
 }
