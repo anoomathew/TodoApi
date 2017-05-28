@@ -15,7 +15,7 @@ var TodoSchema = new Schema({
   status: {
     type: [{
       type: String,
-      enum: ['pending', 'ongoing', 'completed']
+      enum: ['Pending', 'Ongoing', 'Completed']
     }],
     default: ['pending']
   },
