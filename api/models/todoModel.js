@@ -6,6 +6,7 @@ var Schema = mongoose.Schema;
 var TodoSchema = new Schema({
   name: {
     type: String,
+    required: [true, 'Kindly enter the name of the task']
   },
   created_date: {
     type: Date,

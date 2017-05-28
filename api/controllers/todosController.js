@@ -11,9 +11,6 @@ exports.get_todos = function(req, res) {
   });
 };
 
-
-
-
 exports.create_todo = function(req, res) {
   var new_Todo = new Todo(req.body);
   new_Todo.save(function(err, Todo) {
@@ -25,7 +22,7 @@ exports.create_todo = function(req, res) {
 
 
 exports.get_todo = function(req, res) {
-  Todo.findById(req.params.TodoId, function(err, Todo) {
+  Todo.findById(req.params.todoId, function(err, Todo) {
     if (err)
       res.send({ message: err });
     res.json(Todo);
@@ -34,7 +31,7 @@ exports.get_todo = function(req, res) {
 
 
 exports.update_todo = function(req, res) {
-  Todo.findOneAndUpdate(req.params.TodoId, req.body, {new: true}, function(err, Todo) {
+  Todo.findOneAndUpdate(req.params.todoId, req.body, {new: true}, function(err, Todo) {
     if (err)
       res.send({ message: err });
     res.json({ message: 'Todo successfully updated' });
@@ -43,10 +40,8 @@ exports.update_todo = function(req, res) {
 
 
 exports.delete_todo = function(req, res) {
-
-
   Todo.remove({
-    _id: req.params.TodoId
+    _id: req.params.todoId
   }, function(err, Todo) {
     if (err)
       res.send({ message: err });

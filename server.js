@@ -20,11 +20,8 @@ var express = require('express'),
       }
     });
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
 var routes = require('./api/routes/todoRoutes');
-routes(app);
+routes(app, bodyParser);
 
 
 app.listen(port);
