@@ -2,7 +2,7 @@ var jwt = require('jsonwebtoken');
 exports.checkAuth = function(req, res, next) {
    var token = req.body.token || req.query.token || req.headers['x-access-token'];
    if (token) {
-       var secret= process.env.SECRET || 'ToDoToken123';
+       var secret= process.env.SECRET;
     // verifies secret and checks exp
     jwt.verify(token, secret, function(err, decoded) {      
       if (err) {

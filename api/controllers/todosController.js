@@ -31,7 +31,10 @@ exports.get_todo = function(req, res) {
 
 
 exports.update_todo = function(req, res) {
+  console.log(req.body);
+  console.log(req.params.todoId);
   Todo.findOneAndUpdate(req.params.todoId, req.body, {new: true}, function(err, Todo) {
+    console.log(Todo);
     if (err)
       res.send({ message: err });
     res.json({ message: 'Task successfully updated' });

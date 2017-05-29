@@ -1,4 +1,4 @@
-module.exports = function(app, bodyParser, middleware) {
+module.exports = function(app, middleware) {
   var userControl = require('../controllers/userController');
 
   // user Routes

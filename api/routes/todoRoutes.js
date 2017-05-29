@@ -1,5 +1,5 @@
 'use strict';
-module.exports = function(app, bodyParser, middleware) {
+module.exports = function(app, middleware) {
   var todoList = require('../controllers/todosController');
 
   // todoList Routes
