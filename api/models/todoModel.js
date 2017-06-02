@@ -21,6 +21,9 @@ var TodoSchema = new Schema({
   },
   description:{
     type:String  
+  },
+  username:{
+    type:String
   }
 });
 

@@ -50,15 +50,13 @@ exports.sign_in = function(req, res) {
                 if (user.password != req.body.password) {
                     res.json({success:false, data:{message: 'Authentication failed. Wrong password.' }});
                 } else {
-
+                    var details = {name: user.name, username: user.username};
                     // if user is found and password is right
                     // create a token
                     var secret= process.env.SECRET || 'ToDoToken123';
-                    var token = jwt.sign(user,secret,{
+                    var token = jwt.sign(details,secret,{
                         expiresIn : '1h' // expires in 24 hours
                     });
-                    
-                    var details = {name: user.name, username: user.username};
                     // return the information including token as JSON
                     res.json({success:true, data:{
                         user: details,

@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
   Todo = mongoose.model('Todos');
 
 exports.get_todos = function(req, res) {
-  Todo.find({}, function(err, Todo) {
+  Todo.find({username:req.decoded.username}, function(err, Todo) {
     if (err)
       res.send({ message: err });
     res.json(Todo);
@@ -12,6 +12,7 @@ exports.get_todos = function(req, res) {
 };
 
 exports.create_todo = function(req, res) {
+  req.body.username=req.decoded.username;
   var new_Todo = new Todo(req.body);
   new_Todo.save(function(err, Todo) {
     if (err)
