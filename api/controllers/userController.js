@@ -57,11 +57,12 @@ exports.sign_in = function(req, res) {
                     var token = jwt.sign(user,secret,{
                         expiresIn : '1h' // expires in 24 hours
                     });
-
+                    
+                    var details = {name: user.name, username: user.username};
                     // return the information including token as JSON
                     res.json({success:true, data:{
-                    name: user.name,
-                    token: token
+                        user: details,
+                        token: token
                     }});
                 }   
 
