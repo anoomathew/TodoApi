@@ -37,8 +37,7 @@ exports.sign_in = function(req, res) {
                     success: false,
                     data:{message: "Error occured: " + err} 
                 });
-            } else {
-
+            } else {                 
                 User.findOne({username: req.body.username}, function(err, user) {
                 if (err)
                     res.json({ success:false, data:{message: err }});
@@ -58,10 +57,9 @@ exports.sign_in = function(req, res) {
                         expiresIn : '1h' // expires in 24 hours
                     });
                     // return the information including token as JSON
-                    res.json({success:true, data:{
-                        user: details,
+                    res.json({success:true, 
                         token: token
-                    }});
+                    });
                 }   
 
                 }
